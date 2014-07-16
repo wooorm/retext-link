@@ -1,0 +1,17 @@
+{
+  "name": "retext-link",
+  "version": "0.0.1",
+  "description": "Retext link support",
+  "keywords": [
+    "retext",
+    "link",
+    "url",
+    "uri"
+  ],
+  "repository": "wooorm/retext-link",
+  "dependencies": {},
+  "scripts" : [
+    "index.js"
+  ],
+  "license": "MIT"
+}
