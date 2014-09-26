@@ -24,30 +24,33 @@ $ bower install retext-link
 ```js
 var Retext = require('retext'),
     link = require('retext-link'),
-    visit = require('retext-visit');
+    visit = require('retext-visit'),
+    retext;
 
-new Retext()
+retext = new Retext()
     .use(visit)
-    .use(link)
-    .parse(
-        'Have you seen http://foo.com/blah_blah_(wikipedia)_(again)? ' +
-        'Its pretty cool. Send me an email at test+foo@bar.com'
-    )
-    .visit(function (node) {
-        if (node.data.dataType === 'link') {
-            console.log([node.toString(), node.type]);
-        }
-    });
-/*
- * >> ['http://foo.com/blah_blah_(wikipedia)_(again)', 'SourceNode']
- * >> ['test+foo@bar.com', 'SourceNode']
- */
+    .use(link);
 
+retext.parse(
+    'Have you seen http://foo.com/blah_blah_(wikipedia)_(again)? ' +
+    'Its pretty cool. Send me an email at test+foo@bar.com',
+    function (err, tree) {
+        tree.visit(function (node) {
+            if (node.data.dataType === 'link') {
+                console.log(node.toString(), node.type);
+            }
+        });
+        /**
+         * 'http://foo.com/blah_blah_(wikipedia)_(again)', 'SourceNode'
+         * 'test+foo@bar.com', 'SourceNode'
+         */
+    }
+);
 ```
 
 ## API
 
-None, the plugin automatically detects links inside text and stores them in a SourceNode, whereas without retext-link parsers would tokenize `'http://www.test.com'` as something like: WordNode, PunctuationNode, PunctuationNode, WordNode, PunctuationNode, WordNode, PunctuationNode, WordNode.
+None, the plugin automatically detects links inside text and stores them in a `SourceNode`, whereas without **retext-link** parsers would tokenize `'http://www.test.com'` as something like: WordNode, PunctuationNode, PunctuationNode, WordNode, PunctuationNode, WordNode, PunctuationNode, WordNode.
 
 ## License
 
