@@ -1,11 +1,5 @@
 # retext-link [![Build Status](https://travis-ci.org/wooorm/retext-link.svg?branch=master)](https://travis-ci.org/wooorm/retext-link) [![Coverage Status](https://img.shields.io/coveralls/wooorm/retext-link.svg)](https://coveralls.io/r/wooorm/retext-link?branch=master)
 
-[![browser support](https://ci.testling.com/wooorm/retext-link.png) ](https://ci.testling.com/wooorm/retext-link)
-
-See [Browser Support](#browser-support) for more information (a.k.a. don’t worry about those grey icons above).
-
----
-
 **[retext](https://github.com/wooorm/retext "Retext")** link support.
 
 ## Installation
