@@ -2,14 +2,18 @@
   "name": "retext-link",
   "version": "0.0.1",
   "description": "Retext link support",
+  "license": "MIT",
   "keywords": [
     "retext",
     "link",
     "url",
     "uri"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/retext-link.git"
+  },
   "author": "Titus Wormer <tituswormer@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "eslint": "^0.8.0",
     "istanbul": "~0.3.0",
@@ -18,11 +22,6 @@
     "retext": "^0.2.0-rc.2",
     "retext-ast": "^0.1.2",
     "retext-visit": "^0.1.1"
-  },
-  "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/retext-link.git"
   },
   "scripts": {
     "test": "node_modules/.bin/_mocha --reporter spec --check-leaks -u exports spec/retext-link.spec.js",
