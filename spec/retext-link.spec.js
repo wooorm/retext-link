@@ -1,18 +1,38 @@
 'use strict';
 
-var link, Retext, AST, assert, retext, correctURLs,
-    incorrectURLs, visit;
+/**
+ * Dependencies.
+ */
+
+var link,
+    ast,
+    visit,
+    Retext,
+    assert;
 
 link = require('..');
-AST = require('retext-ast');
+ast = require('retext-ast');
 visit = require('retext-visit');
 Retext = require('retext');
 assert = require('assert');
 
+/**
+ * Retext.
+ */
+
+var retext;
+
 retext = new Retext()
     .use(visit)
-    .use(AST)
+    .use(ast)
     .use(link);
+
+/**
+ * Fixtures.
+ */
+
+var correctURLs,
+    incorrectURLs;
 
 correctURLs = [
     'http://foo.com/blah_blah',
@@ -133,68 +153,107 @@ incorrectURLs = [
      */
 ];
 
+/**
+ * Tests.
+ */
+
 describe('link()', function () {
     it('should be of type `function`', function () {
         assert(typeof link === 'function');
     });
 
     it('should classify links (e.g., `www.example.com`) as a source node',
-        function () {
-            var tree = retext.parse('Check out www.example.com!'),
-                link = tree.head.head.tail.prev;
+        function (done) {
+            retext.parse('Check out www.example.com!', function (err, tree) {
+                var node;
 
-            assert(link.toAST() === JSON.stringify({
-                'type' : 'SourceNode',
-                'value' : 'www.example.com',
-                'data' : {
-                    'dataType' : 'link'
-                }
-            }));
+                node = tree.head.head.tail.prev;
+
+                assert(node.toAST() === JSON.stringify({
+                    'type' : 'SourceNode',
+                    'value' : 'www.example.com',
+                    'data' : {
+                        'dataType' : 'link'
+                    }
+                }));
+
+                done(err);
+            });
         }
     );
 });
 
-function validateURL(valueBefore, valueAfter, index, url) {
-    it('should classify `' + url + '` as a source node', function () {
-        var sourceNode = retext.parse(
-            valueBefore + url + valueAfter
-        ).head.head[index];
+/**
+ * Validate a URL.
+ *
+ * @param {string} valueBefore
+ * @param {string} valueAfter
+ * @param {number} index - the location of the URL.
+ * @param {string} url
+ */
 
-        assert(sourceNode.type === sourceNode.SOURCE_NODE);
-        assert(sourceNode.data.dataType === 'link');
-        assert(sourceNode.toString() === url);
+function validateURL(valueBefore, valueAfter, index, url) {
+    it('should classify `' + url + '` as a source node', function (done) {
+        retext.parse(valueBefore + url + valueAfter, function (err, tree) {
+            var node;
+
+            node = tree.head.head[index];
+
+            assert(node.type === node.SOURCE_NODE);
+            assert(node.data.dataType === 'link');
+            assert(node.toString() === url);
+
+            done(err);
+        });
     });
 }
 
+/**
+ * Validate a value is NOT classified as a URL.
+ * Logs helpful messages.
+ *
+ * @param {string} valueBefore
+ * @param {string} valueAfter
+ * @param {number} index - the location of the non-URL.
+ * @param {string} url
+ */
+
 function validateIncorrectURL(valueBefore, valueAfter, index, url) {
-    it('should NOT classify `' + url + '` as a source node', function () {
-        var tree = retext.parse(valueBefore + url + valueAfter),
-            sourceNode = tree.head.head[index];
+    it('should NOT classify `' + url + '` as a source node', function (done) {
+        retext.parse(valueBefore + url + valueAfter, function (err, tree) {
+            var node;
 
-        /* istanbul ignore if: Although not needed yet, this might help
-         * future debugging. */
-        if (sourceNode.type === sourceNode.SOURCE_NODE) {
-            assert(sourceNode.toString() !== url);
+            node = tree.head.head[index];
 
+            /**
+             * Shouldn't be needed, but helpful for
+             * future debugging.
+             */
+
+            /* istanbul ignore next */
             tree.visitType(tree.SOURCE_NODE, function (node) {
-                console.log('    - A URL was, however, detected: ' + node);
+                console.log(
+                    '    - A URL was, however, detected: ' + node
+                );
             });
-        } else {
-            assert(sourceNode.type !== sourceNode.SOURCE_NODE);
-            assert(sourceNode.data.dataType !== 'link');
-        }
+
+            assert(node.type !== node.SOURCE_NODE);
+            assert(node.data.dataType !== 'link');
+
+            done(err);
+        });
     });
 }
 
 describe('Correct urls', function () {
     correctURLs.forEach(function (correctURL) {
-        validateURL('Check out ', ' it’s awesome!', 4, correctURL);
+        validateURL('Check out ', ' it\'s awesome!', 4, correctURL);
     });
 });
 
 describe('Incorrect urls', function () {
     incorrectURLs.forEach(function (incorrectURL) {
-        validateIncorrectURL('Check out ', ' its invalid', 4, incorrectURL);
+        validateIncorrectURL('Check out ', ' it\'s invalid', 4, incorrectURL);
     });
 });
 
@@ -206,7 +265,7 @@ describe('Correct urls suffixed by a full-stop', function () {
 
 describe('Incorrect urls suffixed by a full-stop', function () {
     incorrectURLs.forEach(function (incorrectURL) {
-        validateIncorrectURL('Check the invalid URL ', '.', 4, incorrectURL);
+        validateIncorrectURL('Check the invalid URL ', '.', 8, incorrectURL);
     });
 });
 
@@ -222,13 +281,13 @@ describe('Incorrect urls suffixed by a comma', function () {
     });
 });
 
-describe('Correct urls suffixed multiple full-stops', function () {
+describe('Correct urls suffixed by multiple full-stops', function () {
     correctURLs.forEach(function (correctURL) {
         validateURL('Check out ', '...', 4, correctURL);
     });
 });
 
-describe('Incorrect urls suffixed multiple full-stops', function () {
+describe('Incorrect urls suffixed by multiple full-stops', function () {
     incorrectURLs.forEach(function (incorrectURL) {
         validateIncorrectURL('Check out ', '...', 4, incorrectURL);
     });
