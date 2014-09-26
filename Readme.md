@@ -4,14 +4,19 @@
 
 ## Installation
 
-NPM:
+npm:
 ```sh
 $ npm install retext-link
 ```
 
-Component.js:
+Component:
 ```sh
 $ component install wooorm/retext-link
+```
+
+Bower:
+```sh
+$ bower install retext-link
 ```
 
 ## Usage
