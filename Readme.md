@@ -46,4 +46,4 @@ None, the plugin automatically detects links inside text and stores them in a So
 
 ## License
 
-  MIT
+MIT © Titus Wormer
