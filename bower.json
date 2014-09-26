@@ -1,0 +1,29 @@
+{
+  "name": "retext-link",
+  "main": "index.js",
+  "description": "Retext link support",
+  "license": "MIT",
+  "keywords": [
+    "retext",
+    "link",
+    "url",
+    "uri"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/retext-link.git"
+  },
+  "authors": [
+    "Titus Wormer <tituswormer@gmail.com>"
+  ],
+  "ignore": [
+    ".*",
+    "*.log",
+    "*.md",
+    "component.json",
+    "package.json",
+    "coverage",
+    "node_modules",
+    "spec"
+  ]
+}
