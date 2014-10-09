@@ -10,7 +10,7 @@ var link,
     Retext,
     assert;
 
-link = require('..');
+link = require('./');
 ast = require('retext-ast');
 visit = require('retext-visit');
 Retext = require('retext');
