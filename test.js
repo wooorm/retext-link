@@ -231,7 +231,7 @@ function validateIncorrectURL(valueBefore, valueAfter, index, url) {
              */
 
             /* istanbul ignore next */
-            tree.visitType(tree.SOURCE_NODE, function (node) {
+            tree.visit(tree.SOURCE_NODE, function (node) {
                 console.log(
                     '    - A URL was, however, detected: ' + node
                 );
