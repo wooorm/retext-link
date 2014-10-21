@@ -71,7 +71,10 @@ function mergeLinkExceptions(child, index, parent) {
     nodes = [child];
 
     if (
-        child.type !== 'PunctuationNode' ||
+        (
+            child.type !== 'PunctuationNode' &&
+            child.type !== 'SymbolNode'
+        ) ||
         cstToString(child) !== '.'
     ) {
         return;
@@ -87,12 +90,19 @@ function mergeLinkExceptions(child, index, parent) {
     while (siblings[start - 1]) {
         type = siblings[start - 1].type;
 
-        if (type !== 'WordNode' && type !== 'PunctuationNode') {
+        if (
+            type !== 'WordNode' &&
+            type !== 'PunctuationNode' &&
+            type !== 'SymbolNode'
+        ) {
             break;
         }
 
         if (
-            type === 'PunctuationNode' &&
+            (
+                type === 'PunctuationNode' ||
+                type === 'SymbolNode'
+            ) &&
             EXPRESSION_SLASH.test(cstToString(siblings[start - 1]))
         ) {
             break;
@@ -117,7 +127,11 @@ function mergeLinkExceptions(child, index, parent) {
     while (siblings[end + 1]) {
         type = siblings[end + 1].type;
 
-        if (type !== 'WordNode' && type !== 'PunctuationNode') {
+        if (
+            type !== 'WordNode' &&
+            type !== 'PunctuationNode' &&
+            type !== 'SymbolNode'
+        ) {
             break;
         }
 
