@@ -193,12 +193,12 @@ function mergeLinkExceptions(child, index, parent) {
      */
 
     siblings.splice(start, end - start + 1, {
-        'type' : 'SourceNode',
-        'data' : {
-            'dataType' : 'link'
+        'type': 'SourceNode',
+        'data': {
+            'dataType': 'link'
         },
-        'value' : cstToString({
-            'children' : nodes
+        'value': cstToString({
+            'children': nodes
         })
     });
 

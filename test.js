@@ -170,10 +170,10 @@ describe('link()', function () {
                 node = tree.head.head.tail.prev;
 
                 assert(node.toAST() === JSON.stringify({
-                    'type' : 'SourceNode',
-                    'value' : 'www.example.com',
-                    'data' : {
-                        'dataType' : 'link'
+                    'type': 'SourceNode',
+                    'value': 'www.example.com',
+                    'data': {
+                        'dataType': 'link'
                     }
                 }));
 
