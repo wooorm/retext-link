@@ -1,46 +1,20 @@
 'use strict';
 
 /**
+ * Dependencies.
+ */
+
+var nlcstToString;
+
+nlcstToString = require('nlcst-to-string');
+
+/**
  * Constants.
  */
 
 var EXPRESSION_SLASH;
 
 EXPRESSION_SLASH = /^\/{1,3}$/;
-
-/**
- * Stringify an NLCST node.
- *
- * @param {CSTNode}
- * @return {string}
- */
-
-function cstToString(token) {
-    var value,
-        index,
-        children;
-
-    /* istanbul ignore if */
-    if (token.value) {
-        return token.value;
-    }
-
-    children = token.children;
-
-    /* Shortcut: This is pretty common, and a small performance win. */
-    if (children.length === 1 && children[0].type === 'TextNode') {
-        return children[0].value;
-    }
-
-    value = [];
-    index = -1;
-
-    while (children[++index]) {
-        value[index] = cstToString(children[index]);
-    }
-
-    return value.join('');
-}
 
 /**
  * Merge punctuation marks and words into a source node.
@@ -69,7 +43,7 @@ function mergeLinkExceptions(child, index, parent) {
             child.type !== 'PunctuationNode' &&
             child.type !== 'SymbolNode'
         ) ||
-        cstToString(child) !== '.'
+        nlcstToString(child) !== '.'
     ) {
         return;
     }
@@ -97,7 +71,7 @@ function mergeLinkExceptions(child, index, parent) {
                 type === 'PunctuationNode' ||
                 type === 'SymbolNode'
             ) &&
-            EXPRESSION_SLASH.test(cstToString(siblings[start - 1]))
+            EXPRESSION_SLASH.test(nlcstToString(siblings[start - 1]))
         ) {
             break;
         }
@@ -108,7 +82,7 @@ function mergeLinkExceptions(child, index, parent) {
 
         if (
             type === 'WordNode' &&
-            cstToString(siblings[start]) === 'www'
+            nlcstToString(siblings[start]) === 'www'
         ) {
             break;
         }
@@ -151,7 +125,7 @@ function mergeLinkExceptions(child, index, parent) {
     if (
         start > 0 &&
         siblings[start - 1].type === 'PunctuationNode' &&
-        EXPRESSION_SLASH.test(cstToString(siblings[start - 1]))
+        EXPRESSION_SLASH.test(nlcstToString(siblings[start - 1]))
     ) {
         start--;
 
@@ -165,7 +139,7 @@ function mergeLinkExceptions(child, index, parent) {
     if (
         start > 2 &&
         siblings[start - 1].type === 'PunctuationNode' &&
-        cstToString(siblings[start - 1]) === ':' &&
+        nlcstToString(siblings[start - 1]) === ':' &&
         siblings[start - 2].type === 'WordNode'
     ) {
         nodes.unshift(siblings[start - 2], siblings[start - 1]);
@@ -177,7 +151,7 @@ function mergeLinkExceptions(child, index, parent) {
      * unless it's `/` or `)`.
      */
 
-    value = cstToString(siblings[end]);
+    value = nlcstToString(siblings[end]);
 
     if (
         siblings[end].type === 'PunctuationNode' &&
@@ -197,7 +171,7 @@ function mergeLinkExceptions(child, index, parent) {
         'data': {
             'dataType': 'link'
         },
-        'value': cstToString({
+        'value': nlcstToString({
             'children': nodes
         })
     });

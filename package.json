@@ -9,6 +9,9 @@
     "url",
     "uri"
   ],
+  "dependencies": {
+    "nlcst-to-string": "^0.1.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wooorm/retext-link.git"
