@@ -1,12 +1,6 @@
 'use strict';
 
 /**
- * Define `link`.
- */
-
-function link() {}
-
-/**
  * Constants.
  */
 
@@ -223,20 +217,14 @@ function mergeLinkExceptions(child, index, parent) {
 }
 
 /**
- * Define `attach`.
+ * Define `link`.
  *
  * @param {Retext} retext
  */
 
-function attach(retext) {
+function link(retext) {
     retext.parser.tokenizeSentenceModifiers.unshift(mergeLinkExceptions);
 }
-
-/**
- * Expose `attach`.
- */
-
-link.attach = attach;
 
 /**
  * Expose `link`.
