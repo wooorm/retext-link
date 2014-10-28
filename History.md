@@ -1,4 +1,13 @@
 
+n.n.n / 2014-10-28
+==================
+
+ * Add `.eslintrc`
+ * Add nlcst-to-string as a dependency
+ * Refactor to disallow space after object keys
+ * Refactor for changes in retext
+ * Update eslint, mocha, retext, retext-ast, retext-visit
+
 0.1.2 / 2014-10-21
 ==================
 
