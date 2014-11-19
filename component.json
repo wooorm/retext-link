@@ -10,7 +10,8 @@
     "uri"
   ],
   "dependencies": {
-    "wooorm/nlcst-to-string": "^0.1.0"
+    "wooorm/nlcst-link-modifier": "^0.0.1",
+    "wooorm/textom-link-node": "^0.0.1"
   },
   "repository": "wooorm/retext-link",
   "scripts": [

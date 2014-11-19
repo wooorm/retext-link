@@ -10,7 +10,8 @@
     "uri"
   ],
   "dependencies": {
-    "nlcst-to-string": "^0.1.0"
+    "nlcst-link-modifier": "^0.0.1",
+    "textom-link-node": "^0.0.1"
   },
   "repository": {
     "type": "git",
