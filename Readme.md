@@ -14,11 +14,6 @@ Component:
 $ component install wooorm/retext-link
 ```
 
-Bower:
-```sh
-$ bower install retext-link
-```
-
 ## Usage
 
 ```js
