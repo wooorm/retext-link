@@ -1,5 +1,5 @@
 
-n.n.n / 2014-11-19
+0.2.0 / 2014-11-19
 ==================
 
  * Add new LinkNodes, better parser
