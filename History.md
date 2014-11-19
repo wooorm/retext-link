@@ -1,4 +1,14 @@
 
+n.n.n / 2014-11-19
+==================
+
+ * Add new LinkNodes, better parser
+ * Add retext-inspect as a dev-dependency
+ * Add nlcst-link-modifier, textom-link-node as dependencies
+ * Remove bower support
+ * Fix executive rights on `test.js`
+ * Update retext
+
 0.1.3 / 2014-10-28
 ==================
 
