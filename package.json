@@ -10,7 +10,7 @@
     "uri"
   ],
   "dependencies": {
-    "nlcst-link-modifier": "^0.0.1",
+    "nlcst-link-modifier": "^0.1.0",
     "textom-link-node": "^0.0.1"
   },
   "repository": {
