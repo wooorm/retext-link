@@ -10,7 +10,7 @@
     "uri"
   ],
   "dependencies": {
-    "wooorm/nlcst-to-string": "^0.1.1"
+    "wooorm/nlcst-to-string": "^0.1.0"
   },
   "repository": "wooorm/retext-link",
   "scripts": [
