@@ -7,12 +7,14 @@
 var link,
     ast,
     visit,
+    inspect,
     Retext,
     assert;
 
 link = require('./');
 ast = require('retext-ast');
 visit = require('retext-visit');
+inspect = require('retext-inspect');
 Retext = require('retext');
 assert = require('assert');
 
