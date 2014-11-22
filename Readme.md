@@ -17,15 +17,12 @@ $ component install wooorm/retext-link
 ## Usage
 
 ```js
-var Retext = require('retext'),
-    link = require('retext-link'),
-    visit = require('retext-visit'),
-    inspect = require('retext-inspect'),
-    retext;
+var Retext = require('retext');
+var link = require('retext-link');
+var visit = require('retext-visit');
 
-retext = new Retext()
+var retext = new Retext()
     .use(visit)
-    .use(inspect)
     .use(link);
 
 retext.parse(
@@ -33,13 +30,13 @@ retext.parse(
     'Its pretty cool. Send me an email at mailto:test+foo@bar.com',
     function (err, tree) {
         tree.visit(tree.LINK_NODE, function (node) {
-            console.log('Node', node);
+            console.log('Link', node.toString());
             console.log('Relative?', node.isRelative());
             console.log('Info', node.data);
             console.log();
         });
         /**
-         * Node LinkNode: 'http://foo.com/blah_blah_(wikipedia)_(again)'
+         * Node 'http://foo.com/blah_blah_(wikipedia)_(again)'
          * Relative? false
          * Info {
          *   protocol: 'http:',
@@ -54,7 +51,7 @@ retext.parse(
          *   href: 'http://foo.com/blah_blah_(wikipedia)_(again)'
          * }
          *
-         * Node LinkNode: 'mailto:test+foo@bar.com'
+         * Node 'mailto:test+foo@bar.com'
          * Relative? true
          * Info {
          *   protocol: 'mailto:',
@@ -75,9 +72,9 @@ retext.parse(
 
 ## API
 
-**retext-link** automatically detects links inside text and stores them in a `LinkNode`, whereas without **retext-link** parsers would tokenize `'http://www.test.com'` as something like: WordNode, PunctuationNode, PunctuationNode, WordNode, PunctuationNode, WordNode, PunctuationNode, WordNode.
+**retext-link** automatically detects links in text and wraps them in `LinkNode`s.
 
-The API for LinkNode’s is described in **[textom-link-node](https://github.com/wooorm/textom-link-node#api)**.
+`LinkNode`s API is described in **[textom-link-node](https://github.com/wooorm/textom-link-node#api)**.
 
 ## License
 
