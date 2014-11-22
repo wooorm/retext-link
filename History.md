@@ -1,4 +1,13 @@
 
+n.n.n / 2014-11-22
+==================
+
+ * Refactor `Readme.md`
+ * Add flat badges to `Readme.md`
+ * Refactor npm script targets in `package.json`
+ * Remove retext-visit, retext-cst from dev-dependencies
+ * Update retext, retext-inspect, retext-cst
+
 0.2.1 / 2014-11-19
 ==================
 
