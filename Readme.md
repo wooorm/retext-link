@@ -1,4 +1,4 @@
-# retext-link [![Build Status](https://travis-ci.org/wooorm/retext-link.svg?branch=master)](https://travis-ci.org/wooorm/retext-link) [![Coverage Status](https://img.shields.io/coveralls/wooorm/retext-link.svg)](https://coveralls.io/r/wooorm/retext-link?branch=master)
+# retext-link [![Build Status](https://img.shields.io/travis/wooorm/retext-link.svg?style=flat)](https://travis-ci.org/wooorm/retext-link) [![Coverage Status](https://img.shields.io/coveralls/wooorm/retext-link.svg?style=flat)](https://coveralls.io/r/wooorm/retext-link?branch=master)
 
 **[retext](https://github.com/wooorm/retext "Retext")** link support.
 
