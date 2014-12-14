@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "wooorm/nlcst-link-modifier": "^0.1.0",
-    "wooorm/textom-link-node": "^0.0.1"
+    "wooorm/textom-link-node": "^0.1.0"
   },
   "repository": "wooorm/retext-link",
   "scripts": [
