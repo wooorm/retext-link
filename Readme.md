@@ -72,6 +72,20 @@ retext.parse(
 
 **retext-link** automatically detects links in a document and classifies them as [`LinkNode`](https://github.com/wooorm/textom-link-node#textomlinknode)s.
 
+## Performance
+
+On a MacBook Air. **retext** works 9% faster on content with links, and 2% slower on content without links, when using **retext-link**.
+
+```
+           retext w/o retext-link
+  166 op/s » A paragraph (5 sentences, 100 words, 10 links)
+  238 op/s » A paragraph (5 sentences, 100 words, no links)
+
+           retext w/ retext-link
+  152 op/s » A paragraph (5 sentences, 100 words, 10 links)
+  244 op/s » A paragraph (5 sentences, 100 words, no links)
+```
+
 ## License
 
 MIT © [Titus Wormer](http://wooorm.com)

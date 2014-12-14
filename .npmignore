@@ -4,6 +4,7 @@ build/
 components/
 coverage/
 node_modules/
-test.js
 component.json
+benchmark.js
+test.js
 History.md
