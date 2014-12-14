@@ -27,7 +27,7 @@ var retext = new Retext()
 
 retext.parse(
     'Have you seen http://foo.com/blah_blah_(wikipedia)_(again)? ' +
-    'Its pretty cool. Send me an email at mailto:test+foo@bar.com',
+    'It’s pretty cool. Send me an email at mailto:test+foo@bar.com',
     function (err, tree) {
         tree.visit(tree.LINK_NODE, function (node) {
             console.log('Link', node.toString());
@@ -47,7 +47,6 @@ retext.parse(
          *   search: '',
          *   query: '',
          *   pathname: '/blah_blah_(wikipedia)_(again)',
-         *   path: '/blah_blah_(wikipedia)_(again)',
          *   href: 'http://foo.com/blah_blah_(wikipedia)_(again)'
          * }
          *
@@ -62,7 +61,6 @@ retext.parse(
          *   search: '',
          *   query: '',
          *   pathname: '',
-         *   path: null,
          *   href: 'mailto:test%2Bfoo@bar.com'
          * }
          */
@@ -72,9 +70,7 @@ retext.parse(
 
 ## API
 
-**retext-link** automatically detects links in text and wraps them in `LinkNode`s.
-
-`LinkNode`s API is described in **[textom-link-node](https://github.com/wooorm/textom-link-node#api)**.
+**retext-link** automatically detects links in a document and classifies them as [`LinkNode`](https://github.com/wooorm/textom-link-node#textomlinknode)s.
 
 ## License
 
