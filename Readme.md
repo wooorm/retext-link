@@ -5,18 +5,20 @@
 ## Installation
 
 npm:
-```sh
+
+```bash
 $ npm install retext-link
 ```
 
 Component:
-```sh
+
+```bash
 $ component install wooorm/retext-link
 ```
 
 ## Usage
 
-```js
+```javascript
 var Retext = require('retext');
 var link = require('retext-link');
 var visit = require('retext-visit');
@@ -76,7 +78,7 @@ retext.parse(
 
 On a MacBook Air. **retext** works 9% faster on content with links, and 2% slower on content without links, when using **retext-link**.
 
-```
+```text
            retext w/o retext-link
   166 op/s » A paragraph (5 sentences, 100 words, 10 links)
   238 op/s » A paragraph (5 sentences, 100 words, no links)
