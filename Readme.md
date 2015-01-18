@@ -16,6 +16,12 @@ $ npm install retext-link
 $ component install wooorm/retext-link
 ```
 
+[Duo](http://duojs.org/#getting-started):
+
+```javascript
+var link = require('wooorm/retext-link');
+```
+
 ## Usage
 
 ```javascript
@@ -37,7 +43,7 @@ retext.parse(
             console.log('Info', node.data);
             console.log();
         });
-        /**
+        /*
          * Node 'http://foo.com/blah_blah_(wikipedia)_(again)'
          * Relative? false
          * Info {
