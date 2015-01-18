@@ -3,14 +3,14 @@
 var Retext,
     link;
 
-/**
+/*
  * Dependencies.
  */
 
 Retext = require('retext');
 link = require('./');
 
-/**
+/*
  * Dependencies.
  */
 
@@ -20,7 +20,7 @@ var retext,
 retext = new Retext();
 retextWithLink = new Retext().use(link);
 
-/**
+/*
  * Fixtures.
  *
  * Source:
@@ -30,7 +30,7 @@ retextWithLink = new Retext().use(link);
 var paragraph,
     linkParagraph;
 
-/**
+/*
  * A paragraph, 5 sentences, filled with 10 links.
  */
 
@@ -56,7 +56,7 @@ linkParagraph = 'Thou art a churlish knight to so ' +
     'she was http://✪df.ws/123 gone since Sir Kay ' +
     'does not choose to assume my quarrel.';
 
-/**
+/*
  * A paragraph, 5 sentences, without links.
  */
 
@@ -80,7 +80,7 @@ paragraph = 'Thou art a churlish knight to so affront ' +
     'gone since Sir Kay does not choose to assume my ' +
     'quarrel.';
 
-/**
+/*
  * Benchmark.
  */
 

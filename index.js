@@ -1,6 +1,6 @@
 'use strict';
 
-/**
+/*
  * Dependencies.
  */
 
@@ -15,13 +15,12 @@ textomLinkNode = require('textom-link-node');
  *
  * @param {Retext} retext
  */
-
 function link(retext) {
     nlcstLinkModifier(retext.parser);
     textomLinkNode(retext.TextOM);
 }
 
-/**
+/*
  * Expose `link`.
  */
 
