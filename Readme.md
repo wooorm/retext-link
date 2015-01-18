@@ -96,4 +96,4 @@ On a MacBook Air. **retext** works 9% faster on content with links, and 2% slowe
 
 ## License
 
-MIT © [Titus Wormer](http://wooorm.com)
+[MIT](LICENSE) © [Titus Wormer](http://wooorm.com)
