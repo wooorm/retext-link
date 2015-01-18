@@ -4,13 +4,13 @@
 
 ## Installation
 
-npm:
+[npm](https://docs.npmjs.com/cli/install):
 
 ```bash
 $ npm install retext-link
 ```
 
-Component:
+[Component.js](https://github.com/componentjs/component):
 
 ```bash
 $ component install wooorm/retext-link
