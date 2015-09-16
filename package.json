@@ -1,45 +1,5 @@
 {
   "name": "retext-link",
-  "version": "0.2.4",
-  "description": "Retext link support",
-  "license": "MIT",
-  "keywords": [
-    "retext",
-    "link",
-    "url",
-    "uri"
-  ],
-  "dependencies": {
-    "nlcst-link-modifier": "^0.1.0",
-    "textom-link-node": "^0.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/retext-link.git"
-  },
-  "author": "Titus Wormer <tituswormer@gmail.com>",
-  "devDependencies": {
-    "eslint": "^0.12.0",
-    "istanbul": "^0.3.0",
-    "jscs": "^1.0.0",
-    "jscs-jsdoc": "^0.4.0",
-    "matcha": "^0.6.0",
-    "mocha": "^2.0.0",
-    "retext": "^0.5.0",
-    "retext-inspect": "^0.4.0"
-  },
-  "scripts": {
-    "test-api": "_mocha --check-leaks test.js",
-    "test-coveralls": "istanbul cover _mocha --report lcovonly -- --check-leaks test.js",
-    "test-coverage": "istanbul cover _mocha -- --check-leaks test.js",
-    "test-travis": "npm run test-coveralls",
-    "test": "npm run test-api",
-    "lint-api": "eslint index.js",
-    "lint-benchmark": "eslint --global bench,before,suite,set benchmark.js",
-    "lint-test": "eslint --env mocha test.js",
-    "lint-style": "jscs --reporter inline index.js benchmark.js test.js",
-    "lint": "npm run lint-api && npm run lint-benchmark && npm run lint-test && npm run lint-style",
-    "make": "npm run lint && npm run test-coverage",
-    "benchmark": "matcha benchmark.js"
-  }
+  "version": "0.3.0",
+  "description": "Deprecated"
 }
